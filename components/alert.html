@@ -1,0 +1,26 @@
+<element name="bs-alert" attributes="type multiline dismissable">
+  <template>
+    <link rel="stylesheet" href="../vendor/bootstrap.css">
+    <div class="alert" id="el">
+      <template bind if="{{ dismissable }}">
+        <button type="button" class="close" data-dismiss="alert" on-click="dismiss">&times;</button>
+      </template>
+      <content>
+    </div>
+  </template>
+
+  <script>
+    Polymer.register(this, {
+      type: "warning",
+      multiline: false,
+      dismissable: true,
+
+      multilineChanged: Polymer.Bootstrap.Helpers.classToggler("multiline", "alert-block"),
+      typeChanged: Polymer.Bootstrap.Helpers.classPrefixer("type","alert"),
+
+      dismiss: function() {
+        this.$.el.style.display = "none";
+      }
+    });
+  </script>
+</element>

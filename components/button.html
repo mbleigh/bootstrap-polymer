@@ -1,0 +1,27 @@
+<element name="bs-button" attributes="type size disabled icon">
+  <template>
+    <link rel="stylesheet" href="../vendor/bootstrap.css">
+    <button class="btn" id='el'>
+      <span id="content">{{innerHTML}}</span>
+    </button>
+  </template>
+
+  <script>
+    Polymer.register(this, {
+      type: "default",
+      size: "",
+      disabled: false,
+      icon: "",
+
+      typeChanged: Polymer.Bootstrap.Helpers.classPrefixer("type", "btn"),
+      sizeChanged: Polymer.Bootstrap.Helpers.classPrefixer("size", "btn"),
+      disabledChanged: Polymer.Bootstrap.Helpers.classToggler("disabled", "btn-disabled"),
+      iconChanged: function() {
+        if (!this.icon || this.icon.length == 0) { this.$.content.classList.remove("glyphicon"); }
+        else { this.$.content.classList.add("glyphicon"); }
+
+        Polymer.Bootstrap.Helpers.classPrefixer("icon", "glyphicon", "content").apply(this, arguments);
+      }
+    });
+  </script>
+</element>
