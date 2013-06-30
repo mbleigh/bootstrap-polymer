@@ -1,0 +1,21 @@
+<element name="bs-progress" attributes="amount type striped active">
+  <template>
+    <link rel="stylesheet" href="../vendor/bootstrap.css">
+    <div class="progress" id="el">
+      <div class="progress-bar" style="width: {{amount}}%" id="bar"></div>
+    </div>
+  </template>
+
+  <script>
+    Polymer.register(this, {
+      type: "",
+      striped: false,
+      active: false,
+      amount: 0,
+
+      typeChanged: Polymer.Bootstrap.Helpers.classPrefixer("type", "progress-bar","bar"),
+      stripedChanged: Polymer.Bootstrap.Helpers.classToggler("striped","progress-striped"),
+      activeChanged: Polymer.Bootstrap.Helpers.classToggler("active","active")
+    });
+  </script>
+</element>

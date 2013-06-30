@@ -20,6 +20,12 @@ should in no way be considered production-ready.
 <bs-button type="primary" size="large" icon="cog" disabled="false">Settings</bs-button>
 ```
 
+### Progress Bar
+
+```html
+<bs-progress amount="30" type="warning" active="true" striped="true" />
+```
+
 ## License
 
 Copyright (c) 2013 Michael Bleigh and Divshot, Inc.
